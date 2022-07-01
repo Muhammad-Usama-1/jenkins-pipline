@@ -1,27 +1,11 @@
 pipeline {
-    agent any
-
+    agent { dockerfile true }
     stages {
-        stage('Build') {
+        stage('Test') {
             steps {
-                echo pwd
-                
+                sh 'node --version'
+                sh 'svn --version'
             }
         }
-    
-      stage('Test') {
-            steps {
-                echo 'Hello from Testing'
-                
-            }
-        }
-      stage('Deploy') {
-            steps {
-                echo 'Hello from Dployment'
-                
-            }
-        }
-    
     }
-   
 }
